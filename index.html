@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A modern task manager application to organize and track your daily tasks">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div>
+                    <h1>My Tasks</h1>
+                    <p class="subtitle">Stay organized and productive</p>
+                </div>
+                <button
+                    id="darkModeToggle"
+                    class="dark-mode-toggle"
+                    aria-label="Toggle dark mode"
+                    title="Toggle dark mode"
+                >
+                    <span class="toggle-icon">🌙</span>
+                </button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Task Input Section -->
+            <section class="task-input-section" aria-labelledby="add-task-heading">
+                <h2 id="add-task-heading" class="visually-hidden">Add a new task</h2>
+                <form class="task-form" id="taskForm" novalidate>
+                    <div class="form-group">
+                        <input
+                            type="text"
+                            id="taskInput"
+                            class="task-input"
+                            placeholder="Add a new task..."
+                            aria-label="Task description"
+                            required
+                        >
+                        <button
+                            type="submit"
+                            class="add-btn"
+                            aria-label="Add task"
+                        >
+                            <span class="btn-icon">+</span>
+                            <span class="btn-text">Add Task</span>
+                        </button>
+                    </div>
+                    <div id="errorMessage" class="error-message" role="alert" aria-live="polite"></div>
+                </form>
+            </section>
+
+            <!-- Task Stats Section -->
+            <section class="task-stats" aria-labelledby="stats-heading">
+                <h2 id="stats-heading" class="visually-hidden">Task statistics</h2>
+                <div class="stats-container">
+                    <div class="stat">
+                        <span class="stat-label">Total</span>
+                        <span class="stat-value" id="totalTasks">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Completed</span>
+                        <span class="stat-value" id="completedTasks">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Remaining</span>
+                        <span class="stat-value" id="remainingTasks">0</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Filter Section -->
+            <section class="filter-section" aria-labelledby="filter-heading">
+                <h2 id="filter-heading" class="visually-hidden">Filter tasks</h2>
+                <div class="filter-buttons">
+                    <button
+                        id="filterAll"
+                        class="filter-btn active"
+                        data-filter="all"
+                        aria-label="Show all tasks"
+                        aria-pressed="true"
+                    >
+                        All
+                    </button>
+                    <button
+                        id="filterPending"
+                        class="filter-btn"
+                        data-filter="pending"
+                        aria-label="Show pending tasks"
+                        aria-pressed="false"
+                    >
+                        Pending
+                    </button>
+                    <button
+                        id="filterCompleted"
+                        class="filter-btn"
+                        data-filter="completed"
+                        aria-label="Show completed tasks"
+                        aria-pressed="false"
+                    >
+                        Completed
+                    </button>
+                </div>
+            </section>
+
+            <!-- Task List Section -->
+            <section class="task-list-section" aria-labelledby="tasks-heading">
+                <h2 id="tasks-heading" class="visually-hidden">Your tasks</h2>
+                <div id="tasksContainer" class="tasks-container">
+                    <div class="empty-state">
+                        <p>No tasks yet. Add one to get started!</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Clear Completed Section -->
+            <section class="actions-section">
+                <button
+                    id="clearCompletedBtn"
+                    class="clear-btn"
+                    aria-label="Clear all completed tasks"
+                    disabled
+                >
+                    Clear Completed
+                </button>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2026 Task Manager. Stay productive!</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
